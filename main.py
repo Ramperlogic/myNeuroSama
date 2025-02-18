@@ -6,5 +6,5 @@ if __name__ == "__main__":
     MODEL = "deepseek-r1:32b"
 
     app = ChatApplication(DEBUG_MOD, MODEL)
-    # app.run()
-    app.call_ollama()
+    app.run()
+    # app.call_ollama()

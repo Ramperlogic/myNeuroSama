@@ -14,7 +14,11 @@ class ChatApplication:
             if user_input.lower() == "exit":
                 print("-------------------- ending --------------------")
                 break
-            resp = ollama.chat(
+            client = ollama.Client(
+                host='http://host.docker.internal:11434',
+                headers={'Content-Type': 'application/json'}
+            )
+            resp = client.chat(
                 model=self.MODEL,
                 messages=[
                     {'role': 'user', 'context': user_input}
@@ -35,7 +39,7 @@ class ChatApplication:
                 print("error no resp")
     def call_ollama(self):
         user_input = input("You: ")
-        host = "localhost"
+        host = "host.docker.internal"
         port = "11434"
         url = f"http://{host}:{port}/api/chat"
         model = self.MODEL
