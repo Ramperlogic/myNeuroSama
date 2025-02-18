@@ -1,4 +1,4 @@
-FROM docker.m.daocloud.io/python:3.13-slim
+FROM python:3.13-slim
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
