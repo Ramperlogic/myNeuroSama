@@ -20,7 +20,7 @@ class ChatApplication:
             resp = self.ollama.chat(
                 model=self.MODEL,
                 messages=[
-                    {'role': 'user', 'context': user_input}
+                    {'role': 'user', 'content': user_input}
                 ],
                 keep_alive="-1h"
             )

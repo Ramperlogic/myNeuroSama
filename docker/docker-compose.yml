@@ -1,0 +1,25 @@
+version: '1'
+networks:
+  net:
+
+services:
+  python-app:
+    build: ../
+    ports:
+     - "11434:11434"
+  chroma-db:
+    image: ghcr.io/chroma-core/chroma:0.5.13
+    volumes:
+      - index_data:/index_data
+    expose:
+      - "8000"
+    ports:
+      - "8000:8000"
+    networks:
+      - net
+
+volumes:
+  index_data:
+    driver: local
+  backups:
+    driver: local
