@@ -1,6 +1,10 @@
 init project
 
+ollama python sdk接口
 https://github.com/ollama/ollama-python
+
+chroma python sdk接口
+https://docs.trychroma.com/docs/overview/getting-started
 
 第一阶段
 1. python主函数实现开启ollama与关闭ollama服务的功能

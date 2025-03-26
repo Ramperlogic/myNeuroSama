@@ -1,4 +1,6 @@
 import ollama
+import asyncio
+import memory
 
 
 class ChatApplication:
@@ -20,7 +22,7 @@ class ChatApplication:
             resp = self.ollama.chat(
                 model=self.MODEL,
                 messages=[
-                    {'role': 'user', 'context': user_input}
+                    {'role': 'user', 'content': user_input}
                 ],
                 keep_alive="-1h"
             )
@@ -31,8 +33,8 @@ class ChatApplication:
                     output_str = output_str.strip()
                 except:
                     output_str = "error"
-                print(f"Ai: {output_str}")
+                print(f"Ai: {output_str}\n")
                 if self.DEBUG_MOD:
-                    print(f"Ai: {resp}")
+                    print(f"[debug]: {resp}\n")
             else:
                 print("error no resp")
